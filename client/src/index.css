@@ -1,13 +1,7 @@
-html, body{
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "../node_modules/antd/dist/antd.css";
 
 #root{
+  display: flex;
+  flex-grow: 1;
   height: 100%;
 }
