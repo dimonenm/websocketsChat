@@ -3,6 +3,15 @@ import './App.css'; // ?
 
 function App() {
   const { Header, Footer, Content, Sider } = Layout;
+
+  const onFinish = (values) => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+
   return (
     <Layout>
       <Sider>
@@ -10,16 +19,43 @@ function App() {
       </Sider>
       <Layout>
         <Header>Header</Header>
-        <Content style={{overflow: 'auto'}}></Content>
+        <Content style={{ overflow: 'auto' }}></Content>
         <Footer>
-          <Row>
-            <Col span={10} offset={1}>
-              <DatePicker />
-            </Col>
-            <Col span={10} offset={1}>
-              <Button>Ввести</Button>
-            </Col>
-          </Row>
+          <Form
+            name="basic"
+            labelCol={{ span: 3 }}
+            wrapperCol={{ span: 20 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+          >
+            <Row>
+              <Col span={20}>
+                <Form.Item
+                  label="Message"
+                  name="message"
+                  rules={[{
+                    // required: true,
+                    message: 'Please input your message',
+                  },]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={4}>
+                <Form.Item
+                  wrapperCol={{
+                    span: 2,
+                  }}
+                >
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Col>
+            </Row>
+          </Form>
         </Footer>
       </Layout>
     </Layout>
