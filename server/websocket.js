@@ -1,14 +1,15 @@
 const ws = require('ws');
 
 const wss = new ws.Server({
-    port: 4000,
+    port: 5000,
 }, () => {
-    console.log('Server started on 4000');
+    console.log('Server started on 5000');
 });
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function (message) {
         message = JSON.parse(message);
+        console.log(message);
 
         switch (message.event) {
             case 'message':
