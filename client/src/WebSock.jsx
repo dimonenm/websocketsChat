@@ -49,11 +49,16 @@ const WebSock = () => {
   if (!connected) {
     return (
       <>
-        <Container fluid>
+        {/* <div className="c" style={{display: 'flex', flexDirection: 'column', flexGrow: '1'}}>
+          <div className="r">Header</div>
+          <div className="r" style={{ flexGrow: '1' }}>Main</div>
+          <div className="r">Footer</div>
+        </div> */}
+        <Container fluid style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bs-gray-600)'}}>
           <Row>
             <Col>Header</Col>
           </Row>
-          <Row>
+          <Row style={{ flexGrow: '1' }}>
             <Col>Main</Col>
           </Row>
           <Row>
